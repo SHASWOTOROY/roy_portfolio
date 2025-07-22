@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #ecf0f1;
+  color: #333;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2c3e50;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#preloader img {
+  width: 80px;
+}
+
+.navbar {
+  background-color: #2c3e50 !important;
+  transition: background-color 0.3s ease;
+}
+.navbar .nav-link {
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: #3498db !important;
+}
+
+.hero {
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("pr.jpg") no-repeat center center/cover;
+  filter: blur(5px);
+  transform: scale(1.1);
+  z-index: -2;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.section-title {
+  margin-bottom: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: rgb(36.7380753138, 138.7882845188, 207.1619246862);
+  border-color: rgb(36.7380753138, 138.7882845188, 207.1619246862);
+}
+
+.btn-outline-light {
+  border-width: 2px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-outline-light:hover {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+footer {
+  background-color: #2c3e50;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

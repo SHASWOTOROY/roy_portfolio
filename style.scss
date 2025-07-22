@@ -1,0 +1,166 @@
+// All @use rules MUST come first.
+@use 'sass:color';
+
+// Now we can import fonts.
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+// 1. Variables
+// ===================================
+$primary-color: #2c3e50;
+$secondary-color: #34495e;
+$accent-color: #3498db;
+$light-color: #ecf0f1;
+$font-main: 'Montserrat', sans-serif;
+$font-body: 'Roboto', sans-serif;
+
+
+// 2. General Styling & Animations
+// ===================================
+body {
+    font-family: $font-body;
+    background-color: $light-color;
+    color: #333;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+// 3. Preloader Styling
+// ===================================
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preloader img {
+    width: 80px;
+}
+
+
+// 4. Navbar
+// ===================================
+.navbar {
+    background-color: $primary-color !important;
+    transition: background-color 0.3s ease;
+    .nav-link {
+        transition: color 0.3s ease;
+        &:hover {
+            color: $accent-color !important;
+        }
+    }
+}
+
+
+// 5. Hero Section (Homepage)
+// ===================================
+.hero {
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('pr.jpg') no-repeat center center/cover;
+        filter: blur(5px);
+        transform: scale(1.1);
+        z-index: -2;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeInDown 1s ease-in-out;
+    }
+}
+
+
+// 6. Section & Card Styling
+// ===================================
+.section-title {
+    margin-bottom: 2rem;
+    font-family: $font-main;
+    font-weight: 700;
+    color: $primary-color;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+}
+
+
+// 7. Custom Button Styling
+// ===================================
+.btn-primary {
+    background-color: $accent-color;
+    border-color: $accent-color;
+    color: white;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        background-color: color.scale($accent-color, $lightness: -10%);
+        border-color: color.scale($accent-color, $lightness: -10%);
+    }
+}
+
+.btn-outline-light {
+    border-width: 2px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    &:hover {
+        background-color: $accent-color;
+        border-color: $accent-color;
+    }
+}
+
+
+// 8. Footer
+// ===================================
+footer {
+    background-color: $primary-color;
+}
+
+
+// 9. Keyframe Animations
+// ===================================
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
