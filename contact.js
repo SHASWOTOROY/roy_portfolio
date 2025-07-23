@@ -7,7 +7,7 @@ async function handleSubmit(event) {
 
     try {
         const response = await fetch(event.target.action, {
-            // THIS IS THE FIX: We explicitly set the method to 'POST'
+            
             method: 'POST', 
             body: JSON.stringify(Object.fromEntries(data.entries())),
             headers: {
